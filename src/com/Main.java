@@ -8,7 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String x, y;
+        DataBase db = new DataBase();
+        String x, y, ans;
 
         //пока число не является 8-ми разрядным
         do{
@@ -20,13 +21,17 @@ public class Main {
 //            System.out.println("X:"+ x +" Y:"+ y);
         }
         while (x.length() != 8 || y.length() != 8);
+        db.serialization("src/com/input.txt", x, y);
 
         if (x.charAt(0) == '-')
             x=inversionNumber(x);
         else if(y.charAt(0) == '-')
             y=inversionNumber(y);
 
-        System.out.println("Ответ: "+add(x,y));
+        ans = add(x,y);
+
+        System.out.println("Ответ: "+ans);
+        db.serialization("src/com/output.txt",ans);
     }
 
     /**
