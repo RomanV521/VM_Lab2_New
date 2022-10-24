@@ -1,7 +1,5 @@
 package com;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
 public class Main {
@@ -21,6 +19,7 @@ public class Main {
 //            System.out.println("X:"+ x +" Y:"+ y);
         }
         while (x.length() != 8 || y.length() != 8);
+
         db.serialization("src/com/input.txt", x, y);
 
         if (x.charAt(0) == '-')
@@ -65,14 +64,14 @@ public class Main {
     public static String add(String x, String y){
         int num1 = Integer.parseInt(x,2);
         int num2 = Integer.parseInt(y,2);
-        int ans = num1+num2;
+        int sum = num1+num2;
         int k = 0;
 
         String out ="";
 
-        while (ans != 0){
-            k = ans % 2;
-            ans = ans/2;
+        while (sum != 0){
+            k = sum % 2;
+            sum = sum/2;
             out = k + out;
         }
         return out;
